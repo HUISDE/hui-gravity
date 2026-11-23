@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061323">
+  <meta name="description" content="HUI 引力场，一个可以触碰的微型宇宙。移动、切换、停留，捕捉属于此刻的星光。">
+  <meta property="og:title" content="HUI · 引力场">
+  <meta property="og:description" content="让灵感，有自己的引力。探索三种互动粒子形态，保存独一无二的画面。">
+  <title>HUI · 引力场</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#controls">跳到互动控制</a>
+  <div class="site-shell">
+    <header class="header">
+      <a class="brand" href="#" aria-label="HUI 引力场首页">
+        <svg class="brand-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="20" rx="18" ry="8" transform="rotate(-35 20 20)"/><ellipse cx="20" cy="20" rx="18" ry="8" transform="rotate(35 20 20)"/><circle cx="20" cy="20" r="3"/></svg>
+        <span class="wordmark">hui<span class="brand-dot">.</span></span><span class="brand-caption">引力场</span>
+      </a>
+      <nav aria-label="主导航"><a href="#about">关于这里</a><button class="save-button" data-save>保存画面 <span aria-hidden="true">↗</span></button></nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="intro"><span class="status-dot" aria-hidden="true"></span>一小片，属于自己的宇宙</p>
+          <h1 id="hero-title">让灵感，<br>有自己的<br>引力。</h1>
+          <p class="hero-description">在无序的星光里，发现新的秩序。<br>移动指尖，让这个世界回应你。</p>
+          <a class="explore" href="#controls">进入引力场 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+        </div>
+        <div class="universe" id="universe">
+          <div class="scene-top"><span>实时生成的微型宇宙</span><span class="scene-index" id="scene-index">形态 01 / 03</span></div>
+          <canvas id="cosmos" aria-label="可互动的粒子星环。移动鼠标或触摸可改变视角，点击可产生涟漪。也可使用下方按钮切换形态。" role="img"></canvas>
+          <div class="scene-note"><span class="cross" aria-hidden="true">+</span><span id="scene-caption">万物相遇，自有轨迹。</span></div>
+          <div class="scene-hint"><span aria-hidden="true">⌁</span> 移动以偏转 · 点击以唤醒</div>
+        </div>
+        <div class="hero-bottom"><span>hui.noxc.uk</span><span>每一次停留，都是不同的风景。</span><span class="scroll-mark" aria-hidden="true">↓</span></div>
+      </section>
+      <section class="control-deck" id="controls" aria-label="互动控制">
+        <div class="deck-heading"><span class="deck-kicker">随心，改变宇宙。</span><span id="mode-description">环绕、相遇，再次出发。</span></div>
+        <div class="deck-body">
+          <div class="modes" role="group" aria-label="选择粒子形态">
+            <button class="mode active" aria-pressed="true" data-mode="0"><svg viewBox="0 0 60 44" fill="none" aria-hidden="true"><ellipse cx="30" cy="22" rx="25" ry="10" transform="rotate(-25 30 22)"/><ellipse cx="30" cy="22" rx="18" ry="6" transform="rotate(-25 30 22)"/><circle cx="30" cy="22" r="3"/></svg><span>引力<span class="mode-en" lang="en">Orbit</span></span><span class="mode-indicator" aria-hidden="true"></span></button>
+            <button class="mode" aria-pressed="false" data-mode="1"><svg viewBox="0 0 60 44" fill="none" aria-hidden="true"><path d="M30 22c18-22 33 5 5 11S6 4 30 8s18 32-3 29S4 13 22 13s29 18 14 13S27 9 30 22Z"/></svg><span>星云<span class="mode-en" lang="en">Nebula</span></span><span class="mode-indicator" aria-hidden="true"></span></button>
+            <button class="mode" aria-pressed="false" data-mode="2"><svg viewBox="0 0 60 44" fill="none" aria-hidden="true"><path d="M4 12c16-19 32 30 52 8M4 22c16-19 32 30 52 8M4 32c16-19 32 30 52 8"/></svg><span>流光<span class="mode-en" lang="en">Flow</span></span><span class="mode-indicator" aria-hidden="true"></span></button>
+          </div>
+          <div class="playback"><label for="speed">时间流速 <output id="speed-value" for="speed">1.0×</output></label><input id="speed" type="range" min="0.2" max="2" step="0.1" value="1" aria-label="时间流速"><button id="pause" class="pause" aria-pressed="false"><span class="pause-icon" aria-hidden="true">Ⅱ</span><span id="pause-label">暂停</span></button></div>
+        </div>
+      </section>
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div><span class="small-orbit" aria-hidden="true">✳</span><h2 id="about-title">不必去往远方，<br>也能遇见星辰。</h2></div>
+        <div class="about-copy"><p>这里没有标准答案，也没有既定路线。<br>只是一个让好奇心自由漂浮的地方。</p><p>切换形态，放慢时间，或者停在某一瞬间。<br>喜欢此刻的风景？把它保存下来。</p><button class="text-button" data-save>收藏这一刻 <span aria-hidden="true">↗</span></button></div>
+      </section>
+    </main>
+    <footer><a href="#" class="footer-logo" aria-label="回到顶部">hui.</a><span>保持好奇，继续探索。</span><time id="local-time" aria-label="北京时间"></time><span>© <span id="year">2026</span> HUI</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">开启 JavaScript，即可体验互动星空。</div></noscript>
+</body>
+</html>
